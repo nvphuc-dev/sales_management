@@ -1,0 +1,77 @@
+1. Quản lý Sản phẩm & Tồn kho
+
+Thêm, sửa, xóa, tìm kiếm và sắp xếp thứ tự hiển thị sản phẩm.
+
+Quản lý trạng thái kinh doanh (đang hoạt động, ngừng kinh doanh) và giá nhập, giá bán.
+
+Tự động thống kê số lượng nhập, số lượng bán và tồn kho hiện tại.
+
+Lọc và cảnh báo tình trạng tồn kho (tất cả, sắp hết, đã hết).
+
+2. Quản lý Khách hàng & Giá tùy chỉnh
+
+Thêm, sửa, xóa thông tin khách hàng (tên, số điện thoại, email, địa chỉ).
+
+Tự động theo dõi và cập nhật tổng tiền mua, tổng tiền đã trả và dư nợ (công nợ) của khách hàng.
+
+Xem chi tiết lịch sử mua hàng của từng khách hàng.
+
+Thiết lập và quản lý mức giá bán riêng (giá chiết khấu) cho từng khách hàng đối với từng mặt hàng cụ thể. Tự động áp dụng giá này khi tạo đơn.
+
+3. Quản lý Nhập hàng
+
+Tạo phiếu nhập hàng với mã phiếu tùy chỉnh và thông tin nhà cung cấp.
+
+Hỗ trợ thêm cùng lúc nhiều sản phẩm vào phiếu nhập, tự động tính tổng tiền.
+
+Tự động cộng dồn số lượng vào tồn kho sản phẩm sau khi lưu phiếu.
+
+Xem chi tiết các sản phẩm, số lượng và đơn giá trong từng phiếu nhập.
+
+4. Quản lý Đơn hàng & Bán hàng
+
+Tạo đơn hàng với nhiều sản phẩm, tự động tính toán tổng tiền, kiểm tra lượng tồn kho tối đa.
+
+Quản lý trạng thái xử lý đơn hàng (chờ xử lý, đang giao, hoàn thành, đã hủy) và trạng thái thanh toán (chưa thanh toán, đã thanh toán).
+
+Cập nhật chi tiết đơn hàng đang hoạt động: sửa số lượng sản phẩm, xóa sản phẩm khỏi đơn (tự động hoàn lại tồn kho và điều chỉnh công nợ/tổng tiền).
+
+Xóa toàn bộ đơn hàng (tự động hoàn tồn kho, hoàn công nợ và xóa các giao dịch thu tiền liên đới).
+
+Xem chi tiết đơn hàng và hỗ trợ in hóa đơn bán hàng trực tiếp.
+
+5. Quản lý Tài xế & Giao hàng
+
+Thêm, sửa, xóa thông tin tài xế và biển số xe.
+
+Quản lý trạng thái tài xế (rảnh, đang giao).
+
+Gán tài xế vào đơn hàng kèm ghi chú giao hàng, tự động thay đổi trạng thái tài xế khi nhận đơn và hoàn thành đơn.
+
+6. Quản lý Thu tiền (Thanh toán)
+
+Ghi nhận dòng tiền thu vào theo từng đơn hàng cụ thể của khách.
+
+Hiển thị cảnh báo và gợi ý số tiền còn phải thu để tránh thu vượt mức.
+
+Tự động đối trừ công nợ của khách và tự động chuyển trạng thái đơn hàng sang "Đã thanh toán" khi thu đủ tiền.
+
+7. Báo cáo & Xuất dữ liệu (Excel)
+
+Hỗ trợ xuất file Excel chi tiết cho các phân hệ: Đơn hàng, Nhập hàng, Khách hàng, Thu tiền.
+
+Lọc dữ liệu xuất theo mốc thời gian: hôm nay, tuần này, tháng này hoặc khoảng thời gian tự chọn (từ ngày - đến ngày).
+
+Format file Excel chuẩn hóa (gộp thông tin sản phẩm trên cùng một đơn, định dạng tiền tệ, chia cột rõ ràng).
+
+8. Giao diện & Trải nghiệm người dùng (UI/UX)
+
+Thiết kế Responsive, tối ưu hiển thị riêng biệt cho giao diện Desktop (dạng bảng) và Mobile (dạng thẻ lưới).
+
+Hiển thị tổng số lượng bản ghi trên từng trang quản lý.
+
+Tích hợp Select2 hỗ trợ gõ tìm kiếm nhanh khách hàng, sản phẩm, tài xế trong các form biểu mẫu.
+
+Tính toán tự động tổng tiền realtime khi nhập số lượng hoặc đơn giá.
+
+Tích hợp SweetAlert hiển thị thông báo thao tác thành công/thất bại và xác nhận an toàn trước khi xóa dữ liệu.

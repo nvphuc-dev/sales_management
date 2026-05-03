@@ -1,0 +1,24 @@
+Bảng đối chiếu mockup Thiet Ke -> route (cập nhật dần theo giai đoạn 4).
+File: data_working/Thiet Ke/*.png
+
+01.png -> (chưa gán - cập nhật khi làm UI)
+02.png ->
+03.png ->
+04.png ->
+05.png ->
+06.png ->
+07.png ->
+08.png ->
+09.png ->
+10.png ->
+11.png ->
+12.png ->
+13.png ->
+14.png ->
+15.png ->
+16.png ->
+17.png ->
+18.png ->
+19.png ->
+
+Ghi chú: Duyệt với stakeholder trước khi chốt giai đoạn 0 (gate UI).
