@@ -13,7 +13,8 @@ class Dashboard extends BaseController
     public function index(): string
     {
         return view('admin/dashboard/index', [
-            'title' => 'Tổng quan',
+            'title'     => 'Tổng quan',
+            'navActive' => 'dashboard',
         ]);
     }
 }

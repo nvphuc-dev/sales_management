@@ -7,8 +7,8 @@
                 <h3 class="card-title">Giai đoạn 0 + 1</h3>
             </div>
             <div class="card-body">
-                <p class="mb-2">Đã có <strong>API JSON giai đoạn 3</strong>: resource dưới <code>admin/products</code>, <code>admin/customers</code>, <code>admin/drivers</code>, <code>admin/import-orders</code>, <code>admin/orders</code> (kèm <code>POST .../cancel|complete|assign-driver|payments</code>) và Select2 tại <code>api/search-*</code>.</p>
-                <p class="mb-0 text-body-secondary small">Ví dụ: <code>GET .../api/search-products?q=ga</code> — gửi JSON (Content-Type: application/json) cho các lệnh POST.</p>
+                <p class="mb-2"><strong>Giai đoạn 4:</strong> giao diện SSR dưới <code>admin/view/...</code> (sản phẩm, khách, NCC, nhập, đơn, tài xế). Đơn mới: Select2 + gọi <code>api/line-price</code> để hiển thị giá theo khách; SweetAlert2 xác nhận xóa/hủy.</p>
+                <p class="mb-0 text-body-secondary small">API giai đoạn 3 vẫn dùng tại <code>admin/products</code> (JSON) và <code>api/search-*</code>.</p>
             </div>
         </div>
     </div>
@@ -18,8 +18,8 @@
             <div class="card-body">
                 <ul class="mb-0">
                     <li>Giai đoạn 2: <span class="text-success">Services</span></li>
-                    <li>Giai đoạn 3: <span class="text-success">REST + API Select2</span> — giai đoạn 4: giao diện AdminLTE + form</li>
-                    <li>Giai đoạn 4: Giao diện module + bám mockup <code>data_working/Thiet Ke</code></li>
+                    <li>Giai đoạn 3: <span class="text-success">REST + API Select2</span></li>
+                    <li>Giai đoạn 4: <span class="text-success">Form AdminLTE + Select2 + SweetAlert2</span> — tinh chỉnh bám mockup <code>data_working/Thiet Ke</code></li>
                 </ul>
             </div>
         </div>

@@ -71,10 +71,17 @@ class Validation extends BaseConfig
 
     /** @var array<string, string|list<string>> */
     public array $importOrderCreate = [
-        'code'        => 'required|max_length[64]|is_unique[import_orders.code]',
-        'supplier_id' => 'required|is_natural_no_zero',
-        'notes'       => 'permit_empty|max_length[2000]',
-        'items'       => 'import_items_basic',
+        'code'          => 'required|max_length[64]|is_unique[import_orders.code]',
+        'supplier_id'   => 'required|is_natural_no_zero',
+        'notes'         => 'permit_empty|max_length[2000]',
+        'items'         => 'import_items_basic',
+    ];
+
+    /** Phiếu nhập form web (dòng gửi qua items_json sau khi decode). */
+    public array $importOrderWebHeader = [
+        'code'          => 'required|max_length[64]|is_unique[import_orders.code]',
+        'supplier_id'   => 'required|is_natural_no_zero',
+        'notes'         => 'permit_empty|max_length[2000]',
     ];
 
     /** @var array<string, string|list<string>> */
@@ -93,8 +100,23 @@ class Validation extends BaseConfig
         'items'       => 'order_items_stock',
     ];
 
+    /** Đơn hàng form web (dòng gửi qua items_json). */
+    public array $orderWebHeader = [
+        'order_code'     => 'required|max_length[64]|is_unique[orders.order_code]',
+        'customer_id'    => 'required|is_natural_no_zero',
+        'driver_id'      => 'permit_empty|is_natural_no_zero',
+        'delivery_notes' => 'permit_empty|max_length[2000]',
+        'status'         => 'permit_empty|in_list[pending,shipping]',
+    ];
+
     /** @var array<string, string|list<string>> */
     public array $orderPayment = [
         'amount' => 'required|decimal|greater_than[0]',
+    ];
+
+    /** @var array<string, string|list<string>> */
+    public array $supplierCreate = [
+        'name'         => 'required|max_length[191]',
+        'contact_info' => 'permit_empty|max_length[2000]',
     ];
 }
