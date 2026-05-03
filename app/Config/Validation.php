@@ -119,4 +119,26 @@ class Validation extends BaseConfig
         'name'         => 'required|max_length[191]',
         'contact_info' => 'permit_empty|max_length[2000]',
     ];
+
+    /** @var array<string, string|list<string>> */
+    public array $loginAttempt = [
+        'username' => 'required|max_length[64]',
+        'password' => 'required|max_length[255]',
+    ];
+
+    /** Tạo tài khoản (chỉ quản trị viên). */
+    public array $userAccountCreate = [
+        'username'  => 'required|min_length[3]|max_length[64]|regex_match[/^[a-zA-Z0-9._-]+$/]|is_unique[users.username]',
+        'password'  => 'required|min_length[8]|max_length[255]',
+        'full_name' => 'required|max_length[191]',
+        'role'      => 'required|in_list[employee,admin]',
+    ];
+
+    /** Cập nhật tài khoản (quản trị viên). */
+    public array $userAccountUpdate = [
+        'full_name' => 'required|max_length[191]',
+        'role'      => 'required|in_list[employee,admin]',
+        'password'  => 'permit_empty|min_length[8]|max_length[255]',
+        'is_active' => 'permit_empty|in_list[0,1]',
+    ];
 }

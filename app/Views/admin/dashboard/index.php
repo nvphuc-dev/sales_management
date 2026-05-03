@@ -34,6 +34,7 @@
                 <h3 class="card-title">Giai đoạn 5</h3>
             </div>
             <div class="card-body">
+                <p class="mb-2"><strong>Phân quyền:</strong> <span class="badge text-bg-secondary">Nhân viên</span> dùng đủ nghiệp vụ; <span class="badge text-bg-primary">Quản trị viên</span> thêm được người dùng<?php if (session()->get('role') === 'admin'): ?> tại <a href="<?= site_url('admin/view/users') ?>">Người dùng</a><?php else: ?> (menu <em>Người dùng</em> chỉ dành cho admin)<?php endif; ?>.</p>
                 <p class="mb-2"><strong>Xuất Excel:</strong> <a href="<?= site_url('admin/export') ?>">admin/export</a> — chọn loại (đơn hàng, nhập, khách), khoảng ngày, tải <code>.xlsx</code> (header in đậm, cột tiền VND, gộp ô theo đơn).</p>
                 <p class="mb-0 text-body-secondary small">Nếu tải file lỗi: bật <code>extension=zip</code> trong php.ini (PhpSpreadsheet cần ext-zip).</p>
             </div>

@@ -25,9 +25,20 @@
                     <a href="<?= site_url('admin') ?>" class="nav-link">Trang chủ quản trị</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <span class="nav-link text-body-secondary small">PHP <?= PHP_VERSION ?></span>
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-body-secondary small" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle"></i>
+                        <?= esc((string) (session()->get('full_name') ?: session()->get('username') ?: 'User')) ?>
+                        <?php if (session()->get('role') === 'admin'): ?>
+                            <span class="badge text-bg-primary ms-1">Admin</span>
+                        <?php else: ?>
+                            <span class="badge text-bg-secondary ms-1">NV</span>
+                        <?php endif; ?>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="<?= site_url('auth/logout') ?>">Đăng xuất</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -50,6 +61,14 @@
                             <p>Tổng quan</p>
                         </a>
                     </li>
+                    <?php if (session()->get('role') === 'admin'): ?>
+                    <li class="nav-header">Hệ thống</li>
+                    <li class="nav-item">
+                        <a href="<?= site_url('admin/view/users') ?>" class="nav-link <?= $na === 'users' ? 'active' : '' ?>">
+                            <i class="nav-icon bi bi-person-gear"></i><p>Người dùng</p>
+                        </a>
+                    </li>
+                    <?php endif; ?>
                     <li class="nav-header">Nghiệp vụ</li>
                     <li class="nav-item">
                         <a href="<?= site_url('admin/view/products') ?>" class="nav-link <?= $na === 'products' ? 'active' : '' ?>">
@@ -86,7 +105,7 @@
                     </li>
                     <li class="nav-header">Báo cáo</li>
                     <li class="nav-item">
-                        <a href="<?= site_url('admin/export') ?>" class="nav-link <?= ($navActive ?? '') === 'export' ? 'active' : '' ?>">
+                        <a href="<?= site_url('admin/export') ?>" class="nav-link <?= $na === 'export' ? 'active' : '' ?>">
                             <i class="nav-icon bi bi-file-earmark-spreadsheet"></i><p>Xuất Excel</p>
                         </a>
                     </li>

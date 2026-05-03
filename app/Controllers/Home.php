@@ -1,11 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function index(): string
+    protected $helpers = ['url'];
+
+    public function index(): \CodeIgniter\HTTP\RedirectResponse
     {
-        return view('welcome_message');
+        if (session()->get('user_id')) {
+            return redirect()->to(site_url('admin'));
+        }
+
+        return redirect()->to(site_url('auth/login'));
     }
 }
