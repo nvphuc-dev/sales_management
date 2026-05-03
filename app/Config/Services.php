@@ -19,14 +19,57 @@ use CodeIgniter\Config\BaseService;
  */
 class Services extends BaseService
 {
-    /*
-     * public static function example($getShared = true)
-     * {
-     *     if ($getShared) {
-     *         return static::getSharedInstance('example');
-     *     }
-     *
-     *     return new \CodeIgniter\Example();
-     * }
-     */
+    public static function inventoryService(bool $getShared = true): \App\Services\InventoryService
+    {
+        if ($getShared) {
+            return static::getSharedInstance('inventoryService');
+        }
+
+        return new \App\Services\InventoryService();
+    }
+
+    public static function customerService(bool $getShared = true): \App\Services\CustomerService
+    {
+        if ($getShared) {
+            return static::getSharedInstance('customerService');
+        }
+
+        return new \App\Services\CustomerService();
+    }
+
+    public static function driverService(bool $getShared = true): \App\Services\DriverService
+    {
+        if ($getShared) {
+            return static::getSharedInstance('driverService');
+        }
+
+        return new \App\Services\DriverService();
+    }
+
+    public static function paymentService(bool $getShared = true): \App\Services\PaymentService
+    {
+        if ($getShared) {
+            return static::getSharedInstance('paymentService');
+        }
+
+        return new \App\Services\PaymentService();
+    }
+
+    public static function importOrderService(bool $getShared = true): \App\Services\ImportOrderService
+    {
+        if ($getShared) {
+            return static::getSharedInstance('importOrderService');
+        }
+
+        return new \App\Services\ImportOrderService();
+    }
+
+    public static function orderService(bool $getShared = true): \App\Services\OrderService
+    {
+        if ($getShared) {
+            return static::getSharedInstance('orderService');
+        }
+
+        return new \App\Services\OrderService();
+    }
 }
