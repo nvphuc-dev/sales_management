@@ -86,7 +86,9 @@
                     </li>
                     <li class="nav-header">Báo cáo</li>
                     <li class="nav-item">
-                        <span class="nav-link text-secondary"><i class="nav-icon bi bi-file-earmark-spreadsheet"></i><p>Xuất Excel <small>(giai đoạn 5)</small></p></span>
+                        <a href="<?= site_url('admin/export') ?>" class="nav-link <?= ($navActive ?? '') === 'export' ? 'active' : '' ?>">
+                            <i class="nav-icon bi bi-file-earmark-spreadsheet"></i><p>Xuất Excel</p>
+                        </a>
                     </li>
                 </ul>
             </nav>

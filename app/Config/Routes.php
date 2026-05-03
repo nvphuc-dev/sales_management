@@ -55,6 +55,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], static functio
     $routes->get('/', 'Dashboard::index');
     $routes->get('dashboard', 'Dashboard::index');
 
+    $routes->get('export', 'Export::index');
+    $routes->get('export/download', 'Export::download');
+
     $routes->resource('products', ['controller' => 'Products']);
     $routes->resource('customers', ['controller' => 'Customers']);
     $routes->resource('drivers', ['controller' => 'Drivers']);

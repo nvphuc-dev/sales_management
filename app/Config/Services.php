@@ -72,4 +72,13 @@ class Services extends BaseService
 
         return new \App\Services\OrderService();
     }
+
+    public static function exportSpreadsheetService(bool $getShared = true): \App\Services\ExportSpreadsheetService
+    {
+        if ($getShared) {
+            return static::getSharedInstance('exportSpreadsheetService');
+        }
+
+        return \App\Services\ExportSpreadsheetService::make();
+    }
 }
