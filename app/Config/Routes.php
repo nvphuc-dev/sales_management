@@ -51,6 +51,7 @@ $routes->group('', ['filter' => 'auth'], static function ($routes): void {
         $routes->get('orders', 'Orders::index');
         $routes->get('orders/new', 'Orders::formNew');
         $routes->post('orders', 'Orders::store');
+        $routes->get('orders/(:num)/print', 'Orders::print/$1');
         $routes->get('orders/(:num)', 'Orders::show/$1');
         $routes->post('orders/(:num)/payment', 'Orders::payment/$1');
         $routes->post('orders/(:num)/cancel', 'Orders::cancel/$1');
@@ -65,6 +66,9 @@ $routes->group('', ['filter' => 'auth'], static function ($routes): void {
         $routes->get('users/(:num)/edit', 'Users::formEdit/$1');
         $routes->post('users/(:num)', 'Users::update/$1');
         $routes->post('users/(:num)/deactivate', 'Users::deactivate/$1');
+
+        $routes->get('company-settings', 'CompanySettings::edit');
+        $routes->post('company-settings', 'CompanySettings::update');
     });
 
     $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], static function ($routes): void {

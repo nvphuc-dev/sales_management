@@ -6,6 +6,7 @@ namespace App\Controllers\Admin\View;
 
 use App\Entities\SalesOrder;
 use App\Exceptions\BusinessRuleException;
+use App\Models\CompanySettingModel;
 use App\Services\Money;
 use App\Services\OrderReadService;
 use Config\Services;
@@ -106,6 +107,28 @@ class Orders extends BasePageController
         return $this->page('admin/orders/show', [
             'title'     => 'Đơn ' . $b['header']['order_code'],
             'navActive' => 'orders',
+            'bundle'    => $b,
+            'remaining' => $remain,
+        ]);
+    }
+
+    /**
+     * Trang in đơn (header lấy từ thông tin công ty đã cấu hình).
+     */
+    public function print(?string $id = null): string|\CodeIgniter\HTTP\RedirectResponse
+    {
+        $id = (int) $id;
+        $b  = OrderReadService::make()->findWithItems($id);
+        if ($b === null) {
+            return redirect()->to(site_url('admin/view/orders'))->with('error', 'Không tìm thấy đơn.');
+        }
+
+        $total  = Money::normalize($b['header']['total_amount']);
+        $paid   = Money::normalize($b['paid']);
+        $remain = Money::sub($total, $paid);
+
+        return view('admin/orders/print', [
+            'company'   => model(CompanySettingModel::class)->getSingletonRow(),
             'bundle'    => $b,
             'remaining' => $remain,
         ]);

@@ -141,4 +141,15 @@ class Validation extends BaseConfig
         'password'  => 'permit_empty|min_length[8]|max_length[255]',
         'is_active' => 'permit_empty|in_list[0,1]',
     ];
+
+    /** Thông tin in trên đơn hàng (quản trị viên). */
+    public array $companySettings = [
+        'shop_name'     => 'required|max_length[255]',
+        'phone'         => 'permit_empty|max_length[64]',
+        'email'         => 'permit_empty|valid_email|max_length[191]',
+        'address_line1' => 'permit_empty|max_length[2000]',
+        'address_line2' => 'permit_empty|max_length[2000]',
+        'tax_code'      => 'permit_empty|max_length[64]',
+        'website'       => 'permit_empty|max_length[255]',
+    ];
 }

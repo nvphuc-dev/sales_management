@@ -10,7 +10,7 @@
 <div class="container" style="max-width: 420px;">
     <div class="card shadow-sm">
         <div class="card-body p-4">
-            <h1 class="h4 mb-3 text-center">Quản lý bán hàng</h1>
+            <h1 class="h4 mb-3 text-center">Quản Lý Bán Hàng</h1>
             <p class="text-body-secondary small text-center mb-4">Đăng nhập để tiếp tục</p>
             <?php if ($m = session()->getFlashdata('error')): ?>
                 <div class="alert alert-danger py-2 small"><?= esc($m) ?></div>

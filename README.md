@@ -5,7 +5,7 @@
 CodeIgniter 4 · AdminLTE 4
 
 1. Sao chép `env` thành `.env` (nếu chưa có), chỉnh `app.baseURL` và MySQL (`database.default.*`). Gõ `php spark key:generate` để tạo `encryption.key`.
-2. Tạo database `sales_management` (utf8mb4), rồi: `php spark migrate` và `php spark db:seed UserSeeder` (tạo tài khoản quản trị mặc định: **`admin` / `Admin@123`** — đổi ngay sau lần đăng nhập đầu).
+2. Tạo database `sales_management` (utf8mb4), rồi: `php spark migrate` và `php spark db:seed UserSeeder` (tài khoản **`admin` / `Admin@123`**) hoặc `php spark db:seed DatabaseSeeder` (gồm cả bản ghi **Thông tin công ty** cho in đơn).
 3. Đăng nhập tại `.../auth/login`. Trang `/` và toàn bộ `admin/*`, `admin/view/*`, `api/*` yêu cầu đã đăng nhập. Menu **Người dùng** chỉ hiện với quản trị viên; chỉ admin mới tạo/sửa tài khoản qua `admin/view/users`.
 4. Trỏ virtual host **document root** vào thư mục `public` (hoặc mở `http://127.0.0.1/sales_management/public/admin`).
 5. Nếu dùng vhost `.test` mà CI4 báo baseURL không hợp lệ, đổi `app.baseURL` sang `http://127.0.0.1/...` hoặc `http://localhost/...` (PHP `FILTER_VALIDATE_URL` có thể từ chối một số TLD).

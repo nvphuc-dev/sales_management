@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= esc($title ?? 'Quản lý bán hàng') ?></title>
+    <title><?= esc($title ?? 'Quản Lý Bán Hàng') ?></title>
     <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" crossorigin="anonymous" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css" crossorigin="anonymous">
@@ -66,6 +66,11 @@
                     <li class="nav-item">
                         <a href="<?= site_url('admin/view/users') ?>" class="nav-link <?= $na === 'users' ? 'active' : '' ?>">
                             <i class="nav-icon bi bi-person-gear"></i><p>Người dùng</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= site_url('admin/view/company-settings') ?>" class="nav-link <?= $na === 'company-settings' ? 'active' : '' ?>">
+                            <i class="nav-icon bi bi-building-gear"></i><p>Thông tin công ty</p>
                         </a>
                     </li>
                     <?php endif; ?>
@@ -142,8 +147,8 @@
     </main>
 
     <footer class="app-footer">
-        <div class="float-end d-none d-sm-inline">CodeIgniter 4 · AdminLTE 4</div>
-        <strong><span class="text-body-secondary">Quản lý bán hàng</span></strong>
+        <div class="float-end d-none d-sm-inline">CodeIgniter 4 · AdminLTE 4 · PHP <?= PHP_VERSION ?></div>
+        <strong><span class="text-body-secondary">Quản Lý Bán Hàng</span></strong>
     </footer>
 </div>
 

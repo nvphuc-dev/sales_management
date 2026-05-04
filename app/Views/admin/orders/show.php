@@ -2,8 +2,9 @@
 <?php $h = $bundle['header']; $items = $bundle['items']; $paid = $bundle['paid']; ?>
 <?= $this->section('content') ?>
 <div class="row mb-3">
-    <div class="col">
+    <div class="col d-flex flex-wrap gap-2 align-items-center">
         <a href="<?= site_url('admin/view/orders') ?>" class="btn btn-outline-secondary btn-sm">← Danh sách</a>
+        <a href="<?= site_url('admin/view/orders/' . (int) $h['id'] . '/print') ?>" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener">In đơn</a>
     </div>
 </div>
 <div class="card mb-3">
