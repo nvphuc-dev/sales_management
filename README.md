@@ -1,6 +1,8 @@
 # sales_management
 Ứng dụng quản lý bán hàng
 
+Tài liệu bổ sung: **`docs/HUONG_DAN_DEVELOPER.md`** (developer: cài đặt, routing, services, mở rộng), **`docs/HUONG_DAN_SU_DUNG.md`** (người dùng cuối).
+
 ## Chạy nhanh (Laragon, PHP 8.3.30)
 CodeIgniter 4 · AdminLTE 4
 
