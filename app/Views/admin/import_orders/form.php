@@ -56,10 +56,16 @@
       theme: 'bootstrap-5',
       width: '100%',
       placeholder: 'Chọn sản phẩm',
+      allowClear: true,
+      minimumInputLength: 0,
+      delay: 250,
       ajax: {
         url: searchUrl,
         data: function (p) { return { q: p.term || '' }; },
-        processResults: function (data) { return { results: data.results || [] }; }
+        processResults: function (data) {
+          var r = data.results != null ? data.results : (data.data && data.data.results ? data.data.results : []);
+          return { results: r };
+        }
       }
     });
   }

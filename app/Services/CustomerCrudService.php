@@ -72,12 +72,17 @@ final class CustomerCrudService
      */
     public function searchForSelect2(string $term, int $limit = 30): array
     {
-        $rows = $this->customers->builder()
-            ->select('id, name, phone')
-            ->groupStart()
-            ->like('name', $term)
-            ->orLike('phone', $term)
-            ->groupEnd()
+        $builder = $this->customers->builder()
+            ->select('id, name, phone');
+
+        if ($term !== '') {
+            $builder->groupStart()
+                ->like('name', $term)
+                ->orLike('phone', $term)
+                ->groupEnd();
+        }
+
+        $rows = $builder
             ->orderBy('name', 'ASC')
             ->limit($limit)
             ->get()

@@ -20,9 +20,6 @@ class Search extends BaseController
     {
         $term = $this->request->getGet('q') ?? $this->request->getGet('term');
         $term = is_string($term) ? trim($term) : '';
-        if ($term === '') {
-            return $this->respond(['results' => []]);
-        }
 
         $rows = ProductCatalogService::make()->searchForSelect2($term, 30);
 
@@ -36,9 +33,6 @@ class Search extends BaseController
     {
         $term = $this->request->getGet('q') ?? $this->request->getGet('term');
         $term = is_string($term) ? trim($term) : '';
-        if ($term === '') {
-            return $this->respond(['results' => []]);
-        }
 
         $rows = CustomerCrudService::make()->searchForSelect2($term, 30);
 
@@ -52,9 +46,6 @@ class Search extends BaseController
     {
         $term = $this->request->getGet('q') ?? $this->request->getGet('term');
         $term = is_string($term) ? trim($term) : '';
-        if ($term === '') {
-            return $this->respond(['results' => []]);
-        }
 
         $rows = DriverCrudService::make()->searchForSelect2($term, 30);
 

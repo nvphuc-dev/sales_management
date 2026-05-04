@@ -66,13 +66,18 @@ final class ProductCatalogService
      */
     public function searchForSelect2(string $term, int $limit = 30): array
     {
-        $rows = $this->products->builder()
+        $builder = $this->products->builder()
             ->select('id, name, sku, selling_price')
-            ->where('status', 'active')
-            ->groupStart()
-            ->like('name', $term)
-            ->orLike('sku', $term)
-            ->groupEnd()
+            ->where('status', 'active');
+
+        if ($term !== '') {
+            $builder->groupStart()
+                ->like('name', $term)
+                ->orLike('sku', $term)
+                ->groupEnd();
+        }
+
+        $rows = $builder
             ->orderBy('name', 'ASC')
             ->limit($limit)
             ->get()

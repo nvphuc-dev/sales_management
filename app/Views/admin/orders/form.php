@@ -26,6 +26,8 @@
                         <?php $st = old('status', 'pending'); ?>
                         <option value="pending" <?= $st === 'pending' ? 'selected' : '' ?>>Chờ xử lý</option>
                         <option value="shipping" <?= $st === 'shipping' ? 'selected' : '' ?>>Đang giao</option>
+                        <option value="delivered" <?= $st === 'delivered' ? 'selected' : '' ?>>Đã giao</option>
+                        <option value="cancelled" <?= $st === 'cancelled' ? 'selected' : '' ?>>Đã hủy</option>
                     </select>
                 </div>
                 <div class="col-12 mb-3">
@@ -57,15 +59,18 @@
   const urlProducts = '<?= site_url('api/search-products') ?>';
   const urlLinePrice = '<?= site_url('api/line-price') ?>';
 
-  $('#customer_id').select2({ theme: 'bootstrap-5', width: '100%', placeholder: 'Chọn khách', ajax: {
+  function pickResults(d) {
+    return d.results != null ? d.results : (d.data && d.data.results ? d.data.results : []);
+  }
+  $('#customer_id').select2({ theme: 'bootstrap-5', width: '100%', placeholder: 'Chọn khách', minimumInputLength: 0, ajax: {
     url: urlCustomers, delay: 250,
     data: function (p) { return { q: p.term || '' }; },
-    processResults: function (d) { return { results: d.results || [] }; }
+    processResults: function (d) { return { results: pickResults(d) }; }
   }});
-  $('#driver_id').select2({ theme: 'bootstrap-5', width: '100%', placeholder: '—', allowClear: true, ajax: {
+  $('#driver_id').select2({ theme: 'bootstrap-5', width: '100%', placeholder: '—', allowClear: true, minimumInputLength: 0, ajax: {
     url: urlDrivers, delay: 250,
     data: function (p) { return { q: p.term || '' }; },
-    processResults: function (d) { return { results: d.results || [] }; }
+    processResults: function (d) { return { results: pickResults(d) }; }
   }});
 
   function parseMoney(a) {
@@ -124,11 +129,12 @@
       theme: 'bootstrap-5',
       width: '100%',
       placeholder: 'SP',
+      minimumInputLength: 0,
       ajax: {
         url: urlProducts,
         delay: 250,
         data: function (p) { return { q: p.term || '' }; },
-        processResults: function (d) { return { results: d.results || [] }; }
+        processResults: function (d) { return { results: pickResults(d) }; }
       }
     });
     $tr.find('.product-sel').on('change', function () { fetchPrice($tr); });

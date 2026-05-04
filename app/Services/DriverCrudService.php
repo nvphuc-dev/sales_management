@@ -70,13 +70,18 @@ final class DriverCrudService
      */
     public function searchForSelect2(string $term, int $limit = 30): array
     {
-        $rows = $this->drivers->builder()
+        $builder = $this->drivers->builder()
             ->select('id, name, license_plate, status')
-            ->where('status', 'available')
-            ->groupStart()
-            ->like('name', $term)
-            ->orLike('license_plate', $term)
-            ->groupEnd()
+            ->where('status', 'available');
+
+        if ($term !== '') {
+            $builder->groupStart()
+                ->like('name', $term)
+                ->orLike('license_plate', $term)
+                ->groupEnd();
+        }
+
+        $rows = $builder
             ->orderBy('name', 'ASC')
             ->limit($limit)
             ->get()
